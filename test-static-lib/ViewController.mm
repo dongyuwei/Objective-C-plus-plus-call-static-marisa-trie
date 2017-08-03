@@ -8,8 +8,11 @@
 
 #import "ViewController.h"
 
-//Building Settings ---> Header search Paths ---> add  `$SOURCE_ROOT/include` in Debug and Release
-//General ---> Linked Frameworks and Libraries ---> add `libmarisa.a`(path is lib/libmarisa.a)
+// just rename ViewController.m to ViewController.mm and drag ViewController.mm to test-static-lib dir in XCode
+// Building Settings ---> Header search Paths ---> add  `$SOURCE_ROOT/include` in Debug and Release
+// General ---> Linked Frameworks and Libraries ---> add `libmarisa.a`(path is lib/libmarisa.a)
+// ref: http://s-yata.github.io/marisa-trie/docs/readme.en.html
+
 #import "marisa.h"
 #include <iostream>
 
@@ -27,8 +30,8 @@
     trie.build(keyset);
     
     marisa::Agent agent;
-    agent.set_query("apple");
-    while (trie.common_prefix_search(agent)) {
+    agent.set_query("ap");
+    while (trie.predictive_search(agent)) {
         std::cout.write(agent.key().ptr(), agent.key().length());
         std::cout << ": " << agent.key().id() << std::endl;
     }

@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		F1563BE51F334EE200E8A2C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1563BE41F334EE200E8A2C9 /* AppDelegate.m */; };
-		F1563BE81F334EE200E8A2C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1563BE71F334EE200E8A2C9 /* main.m */; };
 		F1563BED1F334EE200E8A2C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1563BEC1F334EE200E8A2C9 /* Assets.xcassets */; };
 		F1563BF01F334EE200E8A2C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1563BEE1F334EE200E8A2C9 /* Main.storyboard */; };
 		F1563BFB1F334EE200E8A2C9 /* test_static_libTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1563BFA1F334EE200E8A2C9 /* test_static_libTests.m */; };
 		F1563C071F33501500E8A2C9 /* libmarisa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1563C061F33501500E8A2C9 /* libmarisa.a */; };
 		F1563C111F33552400E8A2C9 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F1563C101F33552400E8A2C9 /* ViewController.mm */; };
+		F1563C131F3DE8E200E8A2C9 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = F1563C121F3DE8E200E8A2C9 /* main.mm */; };
+		F1563C171F3DF69A00E8A2C9 /* dict.bin in Resources */ = {isa = PBXBuildFile; fileRef = F1563C161F3DF69A00E8A2C9 /* dict.bin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +31,6 @@
 		F1563BE01F334EE200E8A2C9 /* test-static-lib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "test-static-lib.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1563BE31F334EE200E8A2C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F1563BE41F334EE200E8A2C9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F1563BE71F334EE200E8A2C9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F1563BE91F334EE200E8A2C9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F1563BEC1F334EE200E8A2C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1563BEF1F334EE200E8A2C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -40,6 +40,8 @@
 		F1563BFC1F334EE200E8A2C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1563C061F33501500E8A2C9 /* libmarisa.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmarisa.a; path = lib/libmarisa.a; sourceTree = "<group>"; };
 		F1563C101F33552400E8A2C9 /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		F1563C121F3DE8E200E8A2C9 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		F1563C161F3DF69A00E8A2C9 /* dict.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = dict.bin; path = dict/dict.bin; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		F1563BD71F334EE200E8A2C9 = {
 			isa = PBXGroup;
 			children = (
+				F1563C161F3DF69A00E8A2C9 /* dict.bin */,
 				F1563BE21F334EE200E8A2C9 /* test-static-lib */,
 				F1563BF91F334EE200E8A2C9 /* test-static-libTests */,
 				F1563BE11F334EE200E8A2C9 /* Products */,
@@ -83,6 +86,7 @@
 		F1563BE21F334EE200E8A2C9 /* test-static-lib */ = {
 			isa = PBXGroup;
 			children = (
+				F1563C121F3DE8E200E8A2C9 /* main.mm */,
 				F1563C101F33552400E8A2C9 /* ViewController.mm */,
 				F1563BE31F334EE200E8A2C9 /* AppDelegate.h */,
 				F1563BE41F334EE200E8A2C9 /* AppDelegate.m */,
@@ -98,7 +102,6 @@
 		F1563BE61F334EE200E8A2C9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F1563BE71F334EE200E8A2C9 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1563BED1F334EE200E8A2C9 /* Assets.xcassets in Resources */,
+				F1563C171F3DF69A00E8A2C9 /* dict.bin in Resources */,
 				F1563BF01F334EE200E8A2C9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,8 +227,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1563C131F3DE8E200E8A2C9 /* main.mm in Sources */,
 				F1563C111F33552400E8A2C9 /* ViewController.mm in Sources */,
-				F1563BE81F334EE200E8A2C9 /* main.m in Sources */,
 				F1563BE51F334EE200E8A2C9 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +435,7 @@
 				F1563C011F334EE200E8A2C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F1563C021F334EE200E8A2C9 /* Build configuration list for PBXNativeTarget "test-static-libTests" */ = {
 			isa = XCConfigurationList;
@@ -439,6 +444,7 @@
 				F1563C041F334EE200E8A2C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

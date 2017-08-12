@@ -1,48 +1,59 @@
-//
-//  main.m
-//  test-static-lib
-//
-//  Created by dongyuwei on 8/3/17.
-//  Copyright © 2017 dongyuwei. All rights reserved.
-//
-
 #import <Cocoa/Cocoa.h>
 #import "marisa.h"
 #include <iostream>
 
+NSMutableDictionary*    wordsWithFrequency;
+
 int main(int argc, const char * argv[]) {
     NSDate *start = [NSDate date];
     
-    marisa::Keyset keyset;
-    keyset.push_back("apply", 5, 111);
-    keyset.push_back("application", 12, 222);
-    keyset.push_back("apple", 5, 3);
-    
     marisa::Trie trie;
-    trie.build(keyset);
-    
     marisa::Agent agent;
-    agent.set_query("apple");
+    agent.set_query("bad");
     
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"dict" ofType:@"bin"];
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"google-words-trie" ofType:@"bin"];
     const char *path2 = [path cStringUsingEncoding:[NSString defaultCStringEncoding]];
     try {
         trie.load(path2);
     } catch (const marisa::Exception &ex) {
         std::cerr << ex.what() << ": failed to load a dictionary file: "
-        << "dict/dict.bin" << std::endl;
+        << "dict/google-words-trie.bin" << std::endl;
     }
     NSTimeInterval timeInterval = [start timeIntervalSinceNow];
     NSLog(@"read trie:%f", timeInterval);
     
     NSDate *start2 = [NSDate date];
+    
+    NSMutableArray *candidates = [[NSMutableArray alloc] init];
     while (trie.predictive_search(agent)) {
-        std::cout.write(agent.key().ptr(), agent.key().length());
-        std::cout << ": " << agent.key().id() << std::endl;
+//        NSLog(@"%s : %ld", agent.key().ptr(), agent.key().id());
+        NSNumber* frequency = [NSNumber numberWithInteger: agent.key().id()];
+        NSDictionary* wordWithFrequency = @{@"w": [NSString stringWithUTF8String: agent.key().ptr()], @"f": frequency};
+        [candidates addObject: wordWithFrequency];
     }
     NSTimeInterval timeInterval2 = [start2 timeIntervalSinceNow];
     NSLog(@"read trie:%f", timeInterval2);
     
+    NSArray *sorted = [candidates sortedArrayUsingComparator:^NSComparisonResult(id item1, id item2) {
+        int n = [[item2 objectForKey: @"f"] intValue] - [[item1 objectForKey: @"f"] intValue];
+        if (n > 0){
+            return (NSComparisonResult)NSOrderedAscending;
+        }
+        if (n < 0){
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        return (NSComparisonResult)NSOrderedSame;
+    }];
+    
+    NSMutableArray *words = [[NSMutableArray alloc] init];
+    for (NSDictionary* item in sorted) {
+        [words addObject: [item objectForKey: @"w"]];
+    }
+    NSLog(@"words %@", words);
 
-    return NSApplicationMain(argc, argv);
+
+    
+
+    return 0;
+//    return NSApplicationMain(argc, argv);
 }

@@ -15,6 +15,7 @@
 		F1563C111F33552400E8A2C9 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F1563C101F33552400E8A2C9 /* ViewController.mm */; };
 		F1563C131F3DE8E200E8A2C9 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = F1563C121F3DE8E200E8A2C9 /* main.mm */; };
 		F1563C191F3F48C000E8A2C9 /* google-words-trie.bin in Resources */ = {isa = PBXBuildFile; fileRef = F1563C181F3F48C000E8A2C9 /* google-words-trie.bin */; };
+		F1563C1B1F405DCA00E8A2C9 /* google_227800_words.json in Resources */ = {isa = PBXBuildFile; fileRef = F1563C1A1F405DCA00E8A2C9 /* google_227800_words.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		F1563C101F33552400E8A2C9 /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		F1563C121F3DE8E200E8A2C9 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		F1563C181F3F48C000E8A2C9 /* google-words-trie.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = "google-words-trie.bin"; path = "dict/google-words-trie.bin"; sourceTree = "<group>"; };
+		F1563C1A1F405DCA00E8A2C9 /* google_227800_words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = google_227800_words.json; path = dict/google_227800_words.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		F1563BD71F334EE200E8A2C9 = {
 			isa = PBXGroup;
 			children = (
+				F1563C1A1F405DCA00E8A2C9 /* google_227800_words.json */,
 				F1563C181F3F48C000E8A2C9 /* google-words-trie.bin */,
 				F1563BE21F334EE200E8A2C9 /* test-static-lib */,
 				F1563BF91F334EE200E8A2C9 /* test-static-libTests */,
@@ -208,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1563C191F3F48C000E8A2C9 /* google-words-trie.bin in Resources */,
+				F1563C1B1F405DCA00E8A2C9 /* google_227800_words.json in Resources */,
 				F1563BED1F334EE200E8A2C9 /* Assets.xcassets in Resources */,
 				F1563BF01F334EE200E8A2C9 /* Main.storyboard in Resources */,
 			);

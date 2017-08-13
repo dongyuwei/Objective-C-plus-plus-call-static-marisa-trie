@@ -19,23 +19,23 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
-//    NSLog(@"===viewDidLoad==");
+    marisa::Keyset keyset;
     
-//    marisa::Keyset keyset;
-//    keyset.push_back("a");
-//    keyset.push_back("app");
-//    keyset.push_back("apple");
-//    
-//    marisa::Trie trie;
-//    trie.build(keyset);
-//    
-//    marisa::Agent agent;
-//    agent.set_query("ap");
-//    while (trie.predictive_search(agent)) {
-//        std::cout.write(agent.key().ptr(), agent.key().length());
-//        std::cout << ": " << agent.key().id() << std::endl;
-//    }
-//    
+    keyset.push_back("goods", 5, 52507183);
+    keyset.push_back("goodshoot", 9, 303518);
+    keyset.push_back("goodson", 7, 224454);
+    keyset.push_back("goodsell", 8, 38700);
+    
+    marisa::Trie trie;
+    trie.build(keyset);
+    
+    marisa::Agent agent;
+    agent.set_query("goods");
+    while (trie.predictive_search(agent)) {
+        std::cout.write(agent.key().ptr(), agent.key().length());
+        std::cout << " :: " << agent.key().id() << std::endl;
+    }
+    
     
     [super viewDidLoad];
 

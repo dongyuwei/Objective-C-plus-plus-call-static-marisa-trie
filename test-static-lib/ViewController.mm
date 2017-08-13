@@ -21,20 +21,26 @@
 - (void)viewDidLoad {
     marisa::Keyset keyset;
     
-    keyset.push_back("goods", 5, 52507183);
+    keyset.push_back("goods", 5,     52507183);
     keyset.push_back("goodshoot", 9, 303518);
-    keyset.push_back("goodson", 7, 224454);
-    keyset.push_back("goodsell", 8, 38700);
+    keyset.push_back("goodson", 7,   224454);
+    keyset.push_back("goodsell", 8,  38700);
+
     
     marisa::Trie trie;
     trie.build(keyset);
     
     marisa::Agent agent;
     agent.set_query("goods");
-    while (trie.predictive_search(agent)) {
-        std::cout.write(agent.key().ptr(), agent.key().length());
-        std::cout << " :: " << agent.key().id() << std::endl;
-    }
+//    while (trie.predictive_search(agent)) {
+//        std::cout.write(agent.key().ptr(), agent.key().length());
+//        std::cout << " :: " << agent.key().id() << std::endl;
+//        
+//        const marisa::Key key = agent.key();
+//        const char * word = key.ptr();
+//        NSString* s = [[NSString alloc] initWithBytes:word length:key.length() encoding:NSASCIIStringEncoding];
+//        NSLog(@"---%lu : %@",key.length(), s);
+//    }
     
     
     [super viewDidLoad];

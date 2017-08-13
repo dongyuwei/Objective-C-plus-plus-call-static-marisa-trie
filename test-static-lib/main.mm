@@ -13,28 +13,41 @@ int main(int argc, const char * argv[]) {
                                                            options:NSJSONReadingMutableContainers
                                                              error:nil];
 
-    NSMutableDictionary* wordsWithFrequency = [dict mutableCopy];
+    wordsWithFrequency = [dict mutableCopy];
     [inputStream close];
-    
-    NSArray * allWords = [wordsWithFrequency allKeys];
-    
-    marisa::Keyset keyset;
-    
-    for(NSString* word in allWords){
-        keyset.push_back([word UTF8String], [word length], [[wordsWithFrequency objectForKey:word] intValue]);
-    }
 
     
     marisa::Trie trie;
-    trie.build(keyset);
-    trie.save("/tmp/google_227800_words.bin");
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"google_227800_words" ofType:@"bin"];
+    const char *path2 = [path cStringUsingEncoding:[NSString defaultCStringEncoding]];
+    trie.load(path2);
     
     marisa::Agent agent;
-    agent.set_query("foots");
+    agent.set_query("good");
+    
+    NSMutableArray *candidates = [[NSMutableArray alloc] init];
     while (trie.predictive_search(agent)) {
-        std::cout.write(agent.key().ptr(), agent.key().length());
-        std::cout << " =:= " << agent.key().id() << std::endl;
+        const marisa::Key key = agent.key();
+        NSString* word = [[NSString alloc] initWithBytes: key.ptr()
+                                               length: key.length()
+                                             encoding: NSASCIIStringEncoding];
+        
+        [candidates addObject: word];
     }
+    
+    NSArray *sorted = [candidates sortedArrayUsingComparator:^NSComparisonResult(id w1, id w2) {
+        int n = [[wordsWithFrequency objectForKey: w1] intValue] - [[wordsWithFrequency objectForKey: w2] intValue];
+        if (n > 0){
+            return (NSComparisonResult)NSOrderedAscending;
+        }
+        if (n < 0){
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        return (NSComparisonResult)NSOrderedSame;
+    }];
+    
 
+    NSLog(@"sorted words %@", sorted);
+ 
     return NSApplicationMain(argc, argv);
 }

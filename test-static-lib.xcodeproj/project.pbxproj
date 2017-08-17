@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38D694AC1F414911003B39D9 /* Words.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D694AB1F414911003B39D9 /* Words.m */; };
 		F1563BE51F334EE200E8A2C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1563BE41F334EE200E8A2C9 /* AppDelegate.m */; };
 		F1563BED1F334EE200E8A2C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1563BEC1F334EE200E8A2C9 /* Assets.xcassets */; };
 		F1563BF01F334EE200E8A2C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1563BEE1F334EE200E8A2C9 /* Main.storyboard */; };
@@ -29,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38D694AA1F4148EA003B39D9 /* Words.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Words.h; sourceTree = "<group>"; };
+		38D694AB1F414911003B39D9 /* Words.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Words.m; sourceTree = "<group>"; };
 		F1563BE01F334EE200E8A2C9 /* test-static-lib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "test-static-lib.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1563BE31F334EE200E8A2C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F1563BE41F334EE200E8A2C9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 		F1563BD71F334EE200E8A2C9 = {
 			isa = PBXGroup;
 			children = (
+				38D694AA1F4148EA003B39D9 /* Words.h */,
+				38D694AB1F414911003B39D9 /* Words.m */,
 				F1B3A3F51F40721900D1EF37 /* google_227800_words.bin */,
 				F1563C1A1F405DCA00E8A2C9 /* google_227800_words.json */,
 				F1563BE21F334EE200E8A2C9 /* test-static-lib */,
@@ -232,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1563C131F3DE8E200E8A2C9 /* main.mm in Sources */,
+				38D694AC1F414911003B39D9 /* Words.m in Sources */,
 				F1563C111F33552400E8A2C9 /* ViewController.mm in Sources */,
 				F1563BE51F334EE200E8A2C9 /* AppDelegate.m in Sources */,
 			);

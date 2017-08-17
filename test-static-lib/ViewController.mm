@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+extern NSDictionary*            _dict;
+
 // just rename ViewController.m to ViewController.mm and drag ViewController.mm to test-static-lib dir in XCode
 // Building Settings ---> Header search Paths ---> add  `$SOURCE_ROOT/include` in Debug and Release
 // General ---> Linked Frameworks and Libraries ---> add `libmarisa.a`(path is lib/libmarisa.a)
@@ -15,6 +17,7 @@
 
 #import "marisa.h"
 #include <iostream>
+#import "Words.h"
 
 @implementation ViewController
 
@@ -42,6 +45,12 @@
 //        NSLog(@"---%lu : %@",key.length(), s);
 //    }
     
+
+    NSDate *start2 = [NSDate date];
+    NSLog(@"awesome frequency: %@", [_dict objectForKey: @"awesome"]);
+    NSTimeInterval timeInterval2 = [start2 timeIntervalSinceNow];
+    NSLog(@"get dict by key :%f", timeInterval2);
+
     
     [super viewDidLoad];
 

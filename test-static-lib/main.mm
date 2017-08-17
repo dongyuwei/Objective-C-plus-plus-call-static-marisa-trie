@@ -1,8 +1,10 @@
 #import <Cocoa/Cocoa.h>
 #import "marisa.h"
 #include <iostream>
+#import "Words.h"
 
 NSMutableDictionary*    wordsWithFrequency;
+NSDictionary* _dict;
 
 int main(int argc, const char * argv[]) {
     NSString* file = [[NSBundle mainBundle] pathForResource:@"google_227800_words" ofType:@"json"];
@@ -48,6 +50,11 @@ int main(int argc, const char * argv[]) {
     
 
     NSLog(@"sorted words %@", sorted);
+    
+    NSDate *start1 = [NSDate date];
+    _dict = [Words buildWordsWithFrequency];
+    NSTimeInterval timeInterval1 = [start1 timeIntervalSinceNow];
+    NSLog(@"read json to dict:%f", timeInterval1);
  
     return NSApplicationMain(argc, argv);
 }

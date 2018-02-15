@@ -1,0 +1,6 @@
+.DS_Store
+.*.swp
+node_modules
+*.pid
+test-static-lib.xcodeproj/project.xcworkspace/xcuserdata/
+test-static-lib.xcodeproj/xcuserdata/
